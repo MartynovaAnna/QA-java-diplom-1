@@ -27,7 +27,7 @@ public class BurgerTest {
         Burger burger = new Burger();
         burger.ingredients = new ArrayList<>();
         burger.addIngredient(ingredient);
-        Assert.assertEquals(1, burger.ingredients.size());
+        Assert.assertEquals("Ингредиент не добавляется", 1, burger.ingredients.size());
     }
 
     @Test
@@ -37,7 +37,7 @@ public class BurgerTest {
         burger.addIngredient(ingredient);
         burger.addIngredient(ingredient);
         burger.removeIngredient(1);
-        Assert.assertEquals(1, burger.ingredients.size());
+        Assert.assertEquals("Ингредиент не удаляется", 1, burger.ingredients.size());
     }
 
     @Test
@@ -47,7 +47,7 @@ public class BurgerTest {
         burger.addIngredient(ingredient);
         burger.addIngredient(ingredient);
         burger.moveIngredient(0, 1);
-        Assert.assertEquals(2, burger.ingredients.size());
+        Assert.assertEquals("Ингредиент не заменяется", 2, burger.ingredients.size());
     }
 
     @Test
@@ -60,7 +60,7 @@ public class BurgerTest {
         Mockito.when(ingredient.getPrice()).thenReturn(price);
         float expectedPrice = 6;
         float actualPrice = burger.getPrice();
-        Assert.assertEquals(expectedPrice, actualPrice, 0);
+        Assert.assertEquals("Цена рассчитана неправильно", expectedPrice, actualPrice, 0);
     }
 
     @Test
@@ -76,6 +76,6 @@ public class BurgerTest {
         Mockito.when(ingredient.getPrice()).thenReturn(price);
         String expectedReceipt = "(==== краторная булка ====)\r\n= sauce sauce =\r\n(==== краторная булка ====)\r\n\r\nPrice: 6,000000\r\n";
         String actualReceipt = burger.getReceipt();
-        assertThat(expectedReceipt, equalTo(actualReceipt));
+        assertThat("Чек сгенерирован неправильно", expectedReceipt, equalTo(actualReceipt));
     }
 }

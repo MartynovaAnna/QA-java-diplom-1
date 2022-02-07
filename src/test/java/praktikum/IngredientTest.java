@@ -14,20 +14,20 @@ public class IngredientTest {
     public void shouldHasName() {
         Ingredient ingredient = new Ingredient(type, expectedName, expectedPrice);
         String actualName = ingredient.getName();
-        assertEquals(expectedName, actualName);
+        assertEquals("Название ингредиента не возвращается", expectedName, actualName);
     }
 
     @Test
     public void shouldHasPrice() {
         Ingredient ingredient = new Ingredient(type, expectedName, expectedPrice);
         float actualPrice = ingredient.getPrice();
-        assertEquals(expectedPrice, actualPrice, 0);
+        assertEquals("Цена ингредиента не возвращается", expectedPrice, actualPrice, 0);
     }
 
     @Test
     public void shouldHasType() {
         Ingredient ingredient = new Ingredient(type, expectedName, expectedPrice);
         IngredientType actualType = ingredient.getType();
-        assertEquals(type, actualType);
+        assertEquals("Тип ингредиента не возвращается", type, actualType);
     }
 }

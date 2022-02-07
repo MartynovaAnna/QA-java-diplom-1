@@ -10,11 +10,11 @@ public class IngredientTypeTest {
 
     @Test
     public void shouldHasSauce() {
-        assertThat(IngredientType.valueOf("SAUCE"), CoreMatchers.is(notNullValue()));
+        assertThat("В списке отсутствует элемент SAUCE", IngredientType.valueOf("SAUCE"), CoreMatchers.is(notNullValue()));
     }
 
     @Test
     public void shouldHasFilling() {
-        assertThat(IngredientType.valueOf("FILLING"), CoreMatchers.is(notNullValue()));
+        assertThat("В списке отсутствует элемент FILLING", IngredientType.valueOf("FILLING"), CoreMatchers.is(notNullValue()));
     }
  }
